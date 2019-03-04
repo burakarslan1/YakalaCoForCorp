@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
 
 import com.burakarslan.yakalacoforcorp.R;
 
@@ -13,7 +11,6 @@ public class CampaignTabActivity extends AppCompatActivity {
 
     SectionsPageAdapter sectionsPageAdapter;
     private ViewPager viewPager;
-    private MenuInflater menuInflater;
 
 
     @Override
@@ -35,13 +32,5 @@ public class CampaignTabActivity extends AppCompatActivity {
         adapter.addFragment(new FragmentActiveCampaign(),"Aktif Kampanyalar");
         adapter.addFragment(new FragmentPassiveCampaign(),"Geçmiş Kampanyalar");
         viewPager.setAdapter(adapter);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.menu_campaign, menu);
-
-        return true;
     }
 }

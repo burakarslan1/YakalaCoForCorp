@@ -1,10 +1,10 @@
 package com.burakarslan.yakalacoforcorp.campaign;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,11 +26,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FragmentActiveCampaign extends Fragment {
+public class FragmentActiveCampaign extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     RecyclerView rvCampaignActive;
-    ProgressDialog progressDialog;
+    //ProgressDialog progressDialog;
     private ArrayList<Campaign> campaignArrayList;
     private RecyclerView.Adapter adapter;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Nullable
     @Override
@@ -39,6 +40,28 @@ public class FragmentActiveCampaign extends Fragment {
 
         View view=inflater.inflate(R.layout.fragment_active_campaign,container,false);
         rvCampaignActive=view.findViewById(R.id.rvCampaignActive);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
+        getCampaigns();
+
+
+
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+
+        mSwipeRefreshLayout.post(new Runnable() {
+
+            @Override
+            public void run() {
+
+                mSwipeRefreshLayout.setRefreshing(true);
+
+                // Fetching data from server
+                getCampaigns();
+            }
+        });
 
 
         return view;
@@ -46,16 +69,24 @@ public class FragmentActiveCampaign extends Fragment {
     }
 
     @Override
+    public void onRefresh() {
+        getCampaigns();
+    }
+
+    /*@Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         getCampaigns();
-    }
+    }*/
 
     private void getCampaigns() {
-        progressDialog=new ProgressDialog(getContext());
+
+        mSwipeRefreshLayout.setRefreshing(true);
+
+       /* progressDialog=new ProgressDialog(getContext());
         progressDialog.setMessage("Lütfen bekleyin...");
-        progressDialog.show();
+        progressDialog.show();*/
 
         String fields= "id,name,price,image_urls";
 
@@ -63,14 +94,15 @@ public class FragmentActiveCampaign extends Fragment {
 
         Call<CampaignList> call=campaignService.getCampaign(1,10,fields);
 
-        Log.wtf("URL Called", call.request().url() + "");
+        Log.d("URL Called", call.request().url() + "");
 
         call.enqueue(new Callback<CampaignList>() {
             @Override
             public void onResponse(Call<CampaignList> call, Response<CampaignList> response) {
                 if(response.body()!=null){
                     if(response.code()== HttpURLConnection.HTTP_OK){
-                        progressDialog.dismiss();
+                        //progressDialog.dismiss();
+                        mSwipeRefreshLayout.setRefreshing(false);
                         ArrayList<Campaign> campaignDataList=response.body().getCampaignList();
                         //Intent intent=new Intent(getApplicationContext(),CampaignActivity.class);
                         //intent.putExtra("campaignList",campaignDataList);
@@ -88,7 +120,8 @@ public class FragmentActiveCampaign extends Fragment {
 
             @Override
             public void onFailure(Call<CampaignList> call, Throwable t) {
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                mSwipeRefreshLayout.setRefreshing(false);
                 Toast.makeText(getContext(),t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
             }
         });
@@ -98,4 +131,6 @@ public class FragmentActiveCampaign extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
     }
+
+
 }
