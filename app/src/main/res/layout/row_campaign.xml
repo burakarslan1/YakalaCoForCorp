@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="6dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/ivCampaignImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@color/colorAccent"/>
+        
+        <TextView
+            android:id="@+id/tvCampaignName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvCampaignPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="15"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="5"
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:weightSum="10"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:id="@+id/tvParkDensityPercentageTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Başlık 1"
+                        android:textColor="#323030"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:id="@+id/tvParkDensityPercentage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvParkDensityPercentageTitle"
+                        android:gravity="center"
+                        android:textColor="#00be20"
+                        android:textSize="22sp"
+                        android:text="1000"
+                        />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="5"
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:weightSum="10"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:id="@+id/tvParkEmptyZoneTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Başlık 2"
+                        android:textColor="#323030"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:id="@+id/tvParkEmptyZone"
+                        android:layout_below="@id/tvParkEmptyZoneTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="#00be20"
+                        android:textSize="22sp"
+                        android:text="1000"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="5"
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:weightSum="10"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:id="@+id/asd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Başlık 3"
+                        android:textColor="#323030"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:id="@+id/sdf"
+                        android:layout_below="@id/asd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="#00be20"
+                        android:textSize="22sp"
+                        android:text="1000"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DashboardActivity">
+    <RelativeLayout
+        android:id="@+id/btnInfo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <Button
+            android:id="@+id/btnInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="getMyInfo"
+            android:text="Bilgilerim" />
+    </RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/btnCampaign_Layout"
+    android:layout_width="match_parent"
+
+    android:layout_below="@id/btnInfo_layout"
+    android:layout_height="100dp">
+
+
+    <Button
+        android:id="@+id/btnCampaign"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="getMyCampaigns"
+        android:text="Kampanyalarım" />
+
+
+</RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/btnScanner_Layout"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+
+        android:layout_below="@id/btnCampaign_Layout"
+        android:layout_height="100dp">
+
+
+        <Button
+            android:id="@+id/btnScanner"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:onClick="gotoCodeScanner"
+            android:text="Kodu Tarat" />
+
+        <TextView
+            android:id="@+id/tv_qr_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sonuç"
+            android:textSize="30sp"
+            android:gravity="center"/>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/chart_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/btnScanner_Layout">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="200dp"
+            android:layout_height="200dp">
+
+        </com.github.mikephil.charting.charts.PieChart>
+
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/chart_Layout"
+    android:gravity="end">
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chart_Layout"
+        android:onClick="logout"
+        android:text="Çıkış" />
+
+    <!--<Button
+        android:id="@+id/btnTabActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnLogout"
+        android:onClick="goTabs"
+        android:text="Tablara git" />
+-->
+</LinearLayout>
+
+</RelativeLayout>
