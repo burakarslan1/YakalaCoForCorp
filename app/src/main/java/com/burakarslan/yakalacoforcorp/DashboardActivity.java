@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.burakarslan.yakalacoforcorp.cache.SharedPref;
-import com.burakarslan.yakalacoforcorp.campaign.CampaignTabActivity;
+import com.burakarslan.yakalacoforcorp.campaign.CampaignActivity;
 import com.burakarslan.yakalacoforcorp.codevalidation.CodeActivity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -80,7 +80,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void getMyCampaigns(View view){
         //getCampaigns();
-        Intent intent=new Intent(getApplicationContext(), CampaignTabActivity.class);
+        Intent intent=new Intent(getApplicationContext(), CampaignActivity.class);
         startActivity(intent);
     }
 

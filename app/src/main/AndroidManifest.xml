@@ -15,7 +15,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".codevalidation.CodeActivity" />
-        <activity android:name=".campaign.CampaignTabActivity" />
         <activity android:name=".campaign.CampaignActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".LoginActivity">
